@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <style>
+        table tr th{
+            font-size: 15px;
+            font-weight: 700;
+            background-color: #000033;
+            color: white;
+            padding: 10px;
+        }
+
+        #indice{
+            width: 60px;
+        }
+
+        .indice{
+            text-align: center;
+        }
+
+        #nome{
+            width: 200px;
+        }
+
+        table tr td{
+            font-size: 14px;
+            background-color: #000066;
+            color: white;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <table id="tabela"></table>
+
+    <script>
+
+        $(function(){
+            let nome;
+            let i = 1;
+            let conteudo = "<tr> <th id='indice'> Índice </th> <th id='nome'> Nome </th> <tr>";
+
+                function addTabela(){
+                conteudo += "<tr>";
+                conteudo += "<td class='indice'>"+i+"</td>";
+                conteudo += "<td>"+nome+"</td>";
+                conteudo += "</tr>";
+                $("#tabela").html(conteudo);
+            }
+
+            nome = prompt("Digite um nome:");
+
+            while(nome != null){
+                addTabela();
+                nome = prompt("Digite outro nome, ou aperte cancelar:");
+                i++;
+            }    
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dado1, dado2, soma, tentativa, tentativa2, pontos, i = 1;
+
+        dado1 = Math.floor((Math.random() * 6) + 1);
+        dado2 = Math.floor((Math.random() * 6) + 1);
+        soma = dado1 + dado2;
+
+        alert("Nessa primeira jogada você tem que tirar um 7 ou 11 para vencer, mas se tirar 2, 3 ou 12 você perde. Se forem outros números, você continua.")
+
+        alert("A quantidade dos dados: \nDado 1: " + dado1 + "\nDado 2: " + dado2);
+            
+        if(soma == 7 || soma == 11){
+            alert("A soma dos dois é: " + soma + "\nVocê venceu!!");
+        }
+        else if(soma == 2 || soma == 3 || soma == 12){
+            alert("A soma dos dois é: " + soma+ "\nVocê perdeu!!");
+        }
+        else if(soma == 4 || soma == 5 || soma == 6 || soma == 7 || soma == 8 || soma == 9 || soma == 10){
+            pontos = soma;
+            alert("Você está com " + pontos + " pontos!");
+
+            alert("Agora você tem que tirar o mesmo números de pontos, só não pode tirar 7 se não você perde.")
+
+            do{
+                tentativa1 = Math.floor((Math.random() * 6) + 1);
+                tentativa2 = Math.floor((Math.random() * 6) + 1);
+                soma2 = tentativa1 + tentativa2;
+                alert("Tentativa " + i + ": " + soma2);
+                if(soma2 == 7){
+                    alert("Você perdeu!!");
+                    break;
+                } else if (soma2 == pontos) {
+                    alert("Você acertou!!");
+                }
+                i++;
+            }while(soma2 != pontos);
+        } 
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> IMC </title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+            font-size: 24px;
+            background-color: rgb(196, 207, 226);
+            font-weight: bold;
+        }
+
+        fieldset{
+            width: 450px;
+            margin: auto;
+            margin-top: 150px;
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 30px;
+        }
+
+        legend{
+            text-align: center;
+        }
+
+        input{
+            float: right;
+            width: 250px;
+            height: 24px;
+            border-radius: 6px;
+            border: 1px solid rgb(88, 86, 86);
+            padding: 0px 10px;
+        }
+
+        #botao{
+            width: 100px;
+            font-weight: bold;
+            height: 30px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        #conta, #result{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function (){
+            let btn = document.getElementById("botao");
+            btn.onclick = function () {
+                let alt = parseFloat(document.getElementById("altura").value);
+                let peso = parseFloat(document.getElementById("peso").value);
+                let sexo = document.getElementById("sexo").value;
+
+                let IMC = peso / (alt*alt);
+
+                if(sexo == "F"){
+                    if(IMC < 19.1) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Abaixo do peso!`;
+                    } else if (IMC < 25.8){
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Peso Normal!`;
+                    } else if(IMC < 27.3) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Marginalmente acima do peso!`;
+                    } else if(IMC < 32.3) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Acima do peso ideal!`;
+                    } else {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Obeso!`;
+                    }
+                } else {
+                    if(IMC < 20.7) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Abaixo do peso!`;
+                    } else if(IMC < 26.4) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Peso Normal!`;
+                    } else if(IMC < 27.8) {
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Marginalmente acima do peso!`;
+                    } else if(IMC < 31.1){
+                        document.getElementById("conta").value = IMC;
+                        document.getElementById("result").value = `Acima do peso ideal!`;
+                    } else {
+                        document.getElementById("conta").value = `${IMC}`;
+                        document.getElementById("result").value = `Obeso!`;
+                    }
+                }
+            } 
+        }
+    </script>
+
+    <form>
+        <fieldset>
+            <legend> IMC: </legend>
+
+                <label> Altura: </label>
+                <input type="text" name="altura" id="altura" autofocus>
+                <br><br>
+                <label> Peso: </label>
+                <input type="text" name="peso" id="peso">
+                <br><br>
+                <label> Sexo (F/M): </label>
+                <input type="text" name="sexo" id="sexo">
+                <br><br>               
+                <label> IMC: </label>
+                <input type="text" name="conta" id="conta" disabled>
+                <br><br>
+                <label> Resultado: </label>
+                <input type="text" name="result" id="result" disabled>
+                <br><br>
+                <input type="button" id="botao" value="Calcular">
+        </fieldset>
+    </form>
+
+</body>
+</html>

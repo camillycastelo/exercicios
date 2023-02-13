@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        table{
+            width: 300px;
+            text-align: center;
+        }
+
+        th{
+            background-color: cadetblue;
+            padding: 2px;
+        }
+
+        tr{
+            background-color: rgba(88, 85, 85, 0.384);
+        }
+
+        fieldset{
+            width: 350px;
+        }
+        
+        input{
+            height: 23px;
+            width: 240px;
+            border-radius: 5px;
+            padding: 2px 6px;
+            border: 1px solid black;
+            float: right;
+        }
+
+        #botao{
+            width: 80px;
+            height: 30px;
+            font-weight: 700;
+            float: left;
+            cursor: pointer;
+        }
+
+        #media, #result{
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="2"> LEMBRANDO: </th>
+        </tr>
+        <tr>
+            <th> Média </th>
+            <th> Conceito </th>
+        </tr>
+        <tr>
+            <td> &gt;= 6 </td>
+            <td> APROVADO </td>
+        </tr>
+        <tr>
+            <td> &gt;= 3 E &lt; 6 </td>
+            <td> EXAME </td>
+        </tr>
+        <tr>
+            <td> &lt; 3 </td>
+            <td> REPROVADO </td>
+        </tr>
+    </table>
+
+    <form>
+        <fieldset>
+            <legend> <h2> Digite as notas: </h2> </legend>
+                <label> Nota 1: </label>
+                <input type="text" name="nota1" id="nota1">
+                <br><br>
+                <label> Nota 2: </label>
+                <input type="text" name="nota2" id="nota2">
+                <br><br>
+                <label> Nota 3: </label>
+                <input type="text" name="nota3" id="nota3">
+                <br><br>
+                <label> Média: </label>
+                <input type="text" name="media" id="media" disabled>
+                <br><br>
+                <label> Resultado: </label>
+                <input type="text" name="result" id="result" disabled>
+                <br><br>
+                <input type="button" id="botao" value="Enviar">
+        </fiealdset>
+
+    </form>
+
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("botao");
+            btn.onclick = function(){
+                let n1 = document.getElementById("nota1").value;
+                n1 = parseFloat(n1);
+                let n2 = document.getElementById("nota2").value;
+                n2 = parseFloat(n2);
+                let n3 = document.getElementById("nota3").value;
+                n3 = parseFloat(n3);
+
+                let media = (n1 + n2 + n3)/3;
+
+                if(media >= 6){
+                    document.getElementById("media").value = media;
+                    document.getElementById("result").value = "APROVADO!";
+                } 
+                else if(media >= 3 && media < 6){
+                    document.getElementById("media").value = media;
+                    document.getElementById("result").value = "EXAME!";
+                } 
+                else {
+                    document.getElementById("media").value = media;
+                    document.getElementById("result").value = "REPROVADO!";
+                }
+
+            }
+        }
+    </script>
+</body>
+</html>

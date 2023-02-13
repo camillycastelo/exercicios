@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+
+        form{
+            width: 400px;
+            height: 300px;
+            background-color: rgba(151, 124, 124, 0.541);
+            border-radius: 30px;
+            padding: 40px;
+        }
+
+        .estilo{
+            display: flex;
+            justify-content: center;
+            margin: 20px;    
+        }
+
+        input[type=radio]{
+            display: flexbox;
+        }
+
+    </style>
+</head>
+<body>
+    <form >
+        <div class="estilo">
+            <div>
+                <label> N1: </label>
+            </div>
+            <div>
+                <input type="number" id="num1" required autofocus>
+            </div>
+        </div>
+        <div class="estilo">
+            <div>
+                <label> N2: </label>
+            </div>
+            <div>
+                <input type="number" id="num2" required>
+            </div>
+        </div>
+        <div >
+            <div>
+                <label> Operação: </label>
+            </div>
+            <div>
+                <input type="radio" name="operacao" id="soma" value="soma"> Soma </input>
+                <input type="radio" name="operacao" id="subtracao" value="sub"> Subtração </input>
+                <input type="radio" name="operacao" id="multiplicacao" value="mult"> Multiplicação </input>
+                <input type="radio" name="operacao" id="divisao" value="div"> Divisão </input>
+            </div>
+        </div>
+        <div class="estilo">
+            <div>
+                <label> Resultado </label>
+            </div>
+            <div>
+                <input type="number" id="resp" disabled>
+            </div>
+        </div>
+        <div>
+            <input type="button" id="botao" value="Enviar">
+        </div>
+    </form>
+
+    <script>
+        window.addEventListener("load", function(){
+            const btn = document.querySelector("#botao");
+            let operacao = document.querySelectorAll("input[name=operacao]");
+
+            btn.addEventListener("click", function(){
+                let v1 = parseFloat(document.querySelector("#num1").value);
+                let v2 = parseFloat(document.querySelector("#num2").value);
+
+                let total, escolha;
+
+                for(let op of operacao){
+                    if(op.checked){
+                        escolha = op.value;
+                        break;
+                    }
+                }
+
+                switch(escolha){
+                    case "soma":
+                        total = v1 + v2;
+                        break;
+                    case "sub":
+                        total = v1 - v2;
+                        break;
+                    case "mult":
+                        total = v1 * v2;
+                        break;
+                    case "div": 
+                        total = v1 / v2;
+                        break;
+                    default:
+                        break;
+                }
+
+                document.querySelector("#resp").value = total ?? "";
+
+            });
+
+        });
+    
+    </script>
+</body>
+</html>

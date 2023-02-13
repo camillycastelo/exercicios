@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulário </title>
+
+    <style>
+
+        #container{
+            width: 500px;
+            height: 450px;
+            background-color: rgb(139, 69, 19);
+            padding: 26px;
+            border-radius: 25px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1, p, .label{
+            margin-top: 0;
+            text-align: center;
+            color: rgb(245, 245, 245);
+            text-shadow: 3px 3px 3px rgb(0, 0, 0);
+        }
+
+        h1 {
+            margin-bottom: 7px;
+        }
+
+        hr{
+            background-color: rgb(0, 0, 0);
+            border: none;
+            height: 3.3px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .label{
+            font-weight: 600;
+            width: 84px;
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        #formulario{
+            margin-top: 30px;
+        }
+
+        .formatacao{
+            display: flex;
+            justify-content: center;
+        }
+
+        .area{
+            margin-bottom: 18px;
+            height: 30px;
+            width: 325px;
+            border-radius: 6px;
+            border: none;
+            padding: 3px 0px 3px 8px;
+            background-color: rgb(255, 222, 173);
+            box-shadow: 3px 3px rgb(0, 0, 0);
+        }
+
+        #selecao{
+            width: 332px;
+            height: 35px;
+        }
+
+        #texto{
+            height: 80px;
+        } 
+
+        #botao{
+            padding: 8px 18px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 1px 1px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 152px;
+            box-shadow: 2px 2px 2px rgb(19, 18, 18);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1> Formulário de Contato </h1>
+        <p> <strong>Preencha todos os campos</strong> </p>
+        <hr>
+        <form action="" method="post" id="formulario">
+            <div class="formatacao">
+                <div class="label"> Nome: </div>
+                <div>
+                    <input class="area" type="text" autofocus required placeholder="Nome completo">
+                </div>
+            </div>
+            
+            <div class="formatacao">
+                <div class="label"> Email: </div>
+                <div>
+                    <input class="area" type="email" required placeholder="E-mail Válido">
+                </div>
+            </div>
+            
+            <div class="formatacao">
+                <div class="label"> Assunto: </div>
+                <div>
+                    <select class="area" id="selecao" name="assunto" id="assunto" required>
+                        <option selected disabled hidden> </option>
+                        <option value="duvidas"> Dúvidas do Produto </option>
+                        <option value="atraso"> Atraso na Entrega </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="formatacao">
+                <div class="label"> Mensagem: </div>
+                <div>
+                    <textarea placeholder="Sua mensagem" class="area" id="texto" name="mensagem" id="mensagem" cols="40" rows="7"></textarea>
+                </div>
+            </div>
+            
+            <div class="formatacao">
+                <input id="botao" type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

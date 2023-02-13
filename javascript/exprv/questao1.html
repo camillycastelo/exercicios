@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Questao 1 </title>
+
+    <style>
+
+        body{
+            background-color: rgb(201, 195, 195);
+        }
+
+        form{
+            padding: 30px;
+            width: 300px;
+            background-color: rgba(236, 227, 227, 0.459);
+            border-radius: 20px;
+            margin: 180px auto;
+            font-weight: bold;
+            height: 230px;
+        }
+
+        div{
+            margin: 7px 0px;
+        }
+
+        .formatacao{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        input[type=button]{
+            padding: 5px;
+            font-weight: bold;
+            background-color: white;
+            border-radius: 6px;
+            float: right;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        #resultado{
+            background-color: white;
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <h2> Calcular novo salário: </h2>
+        </div>
+        <div>
+            <div class="formatacao">
+                <div>
+                    <label> Salário: </label>
+                </div>
+                <div>
+                    <input type="number" id="salario" required focus>
+                </div>
+            </div>
+            <div class="formatacao">
+                <div>
+                    <label> Categoria: </label>
+                </div>
+                <div>
+                    <input type="text" id="categoria" required>
+                </div>
+            </div>
+            <div class="formatacao">
+                <div>
+                    <label> Resultado: </label>
+                </div>
+                <div id="resultado">
+                    <input type="text" id="result" disabled>
+                </div>
+            </div>
+            <div>
+                <input type="button" id="botao" value="Calcular">
+            </div>
+        </div>
+    </form>
+
+    <script>
+        window.addEventListener("load", function(){
+            const btn = document.querySelector("#botao");
+
+            btn.addEventListener("click", function(){
+                let sal = parseFloat(document.querySelector("#salario").value);
+                let cat = document.querySelector("#categoria").value;
+
+                cat = cat.toUpperCase();
+
+                let total;
+
+                switch(cat){
+                    case "A":
+                        total = sal + ((sal*25)/100);
+                        break;
+                    case "B":
+                        total = sal + ((sal*20)/100);
+                        break;
+                    case "C":
+                        total = sal + ((sal*10)/100);
+                        break;
+                    default:
+                        document.querySelector("#result").value = "Categoria Inexistente!";
+                        break;
+                }
+
+                document.querySelector("#result").value = "R$" + total.toFixed(2);
+            });
+        });
+    </script>
+</body>
+</html>

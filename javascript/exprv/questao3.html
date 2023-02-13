@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Questão 3 </title>
+
+    <style>
+
+        body{
+            background-color: rgb(255, 255, 208);
+        }
+
+        form{
+            text-align: center;
+        }
+        .dados{
+            display: flex;
+            justify-content: center;
+        }
+
+        div{
+            margin: 10px;
+        }
+
+        #centro{
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type=button]{
+            height: 23px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <div>
+                <h2> Joga dados </h2>
+                <h4> Criar Tabela: </h4>
+            </div>
+            <div class="dados">
+                <div class="dados">
+                    <div>
+                        <label> D1: </label>
+                    </div>
+                    <div>
+                        <input type="number" id="dado1" required focus>
+                    </div>
+                </div>
+                <div class="dados">
+                    <div>
+                        <label> D2: </label>
+                    </div>
+                    <div>
+                        <input type="number" id="dado2" required>
+                    </div>
+                </div>
+                <div class="dados">
+                    <input type="button" value="Ciar Tabela" id="botao">
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <div id="centro">
+        <div id="tabela"></div>
+    </div>
+    <script>
+        window.addEventListener("load", function(){
+            const btn = document.querySelector("#botao");
+            
+            btn.addEventListener("click", function(){
+
+                let d1 = parseInt(document.querySelector("#dado1").value);
+                let d2 = parseInt(document.querySelector("#dado2").value);
+
+                let conteudo = "";
+                conteudo += "<table border='2px'>";
+
+                let medio;
+
+                medio = (d1+d2)/2;
+
+                medio = parseInt(medio);
+
+                console.log(medio);
+
+                for(let i = 1; i <= d1; i++){
+                    conteudo += "<tr>";
+                    for(let j = 1; j <= d2; j++){
+                        let total = i + j;
+
+                        if(i == 1 && j == 1){
+                            conteudo += "<td style='background-color: red'>" + total+ "</td>"; 
+                        }
+                        else if(i == d1 && j == d2){
+                            conteudo += "<td style='background-color: green'>" + total+ "</td>";
+                        } 
+                        else if(j == medio){
+                            conteudo += "<td style='background-color: yellow'>" + total+ "</td>";
+                            medio -= 1;
+                        } 
+                        else {
+                        conteudo += "<td>" + total+ "</td>";
+                        }
+                    }
+                    conteudo += "</tr>";
+                }
+
+                conteudo += "</table>";
+
+                document.querySelector("#tabela").innerHTML = conteudo;
+            });
+        });
+    </script>
+</body>
+</html>

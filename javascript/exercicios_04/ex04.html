@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            background: linear-gradient(rgb(123, 87, 134), rgb(64, 64, 126)) no-repeat;
+            height: 700px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        div{
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        label{
+            margin-right: 20px;
+        }
+
+        input{
+            height: 23px;
+            width: 240px;
+            border: none;
+            border-radius: 5px;
+            padding: 2px 6px;
+            float: right;
+        }
+
+        fieldset{
+            width: 400px;
+            padding: 20px;
+            padding-left: 0;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #botao{
+            width: 80px;
+            height: 30px;
+            font-weight: 700;
+            margin-right: 80px;
+            cursor: pointer;
+        }
+
+        #area{
+            color: black;
+            background-color: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+            <fieldset>
+                <legend>
+                    <h2> Digite as medidas do retângulo em metros: </h2>
+                </legend>
+                <label> Base: </label>
+                <input type="text" name="base" id="base">
+                <br> <br>
+                <label> Altura: </label>
+                <input type="text" name="altura" id="altura">
+                <br> <br>
+                <label> Área: </label>
+                <input type="text" name="area" id="area" disabled>
+                <br> <br>
+                <input type="button" id="botao" value="Calcular">
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("botao");
+            btn.onclick = function(){
+                let base = document.getElementById("base").value;
+                base = parseFloat(base);
+                let altura = document.getElementById("altura").value;
+                altura = parseFloat(altura);
+
+                let area = base * altura;
+
+                document.getElementById("area").value = area + " m²";
+            }
+        }
+    </script>
+</body>
+</html>

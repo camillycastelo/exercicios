@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./jquery-3.6.1.min.js"></script>
+    <style>
+        #bloco{
+            width: 200px;
+            height: 200px;
+            background-color: #000000;
+        }
+
+        #bloco2{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+        }
+
+        body{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div id="bloco"></div>
+    <div id="bloco2"></div>
+    <p id="texto"></p>
+    <script>
+        // função que vai funcionar quando o documento estiver totalmente pronto
+        // o evento ready é disparado depois que o documento HTML for carregado.
+        // quando o scripit for em cima
+        $(document).ready(() => {
+
+            // $("#bloco").click(() => {
+            //     $("#texto").text("Clicado");
+            // });
+            // $("#bloco").mouseenter(() => {
+            //     $("#texto").text("Mouse sobre o quadrado");
+            // });
+            // $("#bloco").mouseleave(() => {
+            //     $("#texto").text("Mouse saiu do quadrado");
+            // });
+            // $("#bloco").mousemove(() => {
+            //     $("#bloco").css("background-color", "red")
+            // });
+
+            // AGORA COM A FUNÇÃO "ON" PARA FACILITAR AINDA MAIS - tratando vários eventos
+
+            // $("#bloco").on('click dblclick', () => {
+                 // mesma ação para dois eventos
+            //     $("#texto").text("Clique no quadrado");
+            // });
+
+            $("#bloco").on({
+                click: () => {
+                    $("#texto").text("Clique no quadrado")
+                },
+
+                mouseenter: () => {
+                    $("#texto").text("Mouse sobre o quadrado");
+                },   
+                
+                mouseleave: () => {
+                    $("#texto").text("Mouse saiu do quadrado");
+                }
+            });
+            
+            // quando o bloco dois é clicado, dispara o evento de clique do bloco um
+            $("#bloco2").click(() => {
+                $("#bloco").trigger("click");
+            });
+        });
+    </script>
+</body>
+</html>

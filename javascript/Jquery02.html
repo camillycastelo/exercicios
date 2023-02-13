@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.1.min.js"></script>
+
+    <style>
+        div{
+            width: 300px;
+            border: 2px solid red;
+            padding: 10px 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="texto"> Segundo Exemplo </div>
+    <input type="button" id="textohtml" value="Função HTML">
+    <input type="button" id="textotext" value="Função TEXT">
+    <input type="button" id="textoappend" value="Função APPEND">
+    <input type="button" id="textoprepend" value="Função PREPEND">
+    <br>
+    <input type="button" id="limpar" value="Função LIMPAR">
+    <input type="button" id="remover" value="Função REMOVER">
+    <script>
+        $(function(){
+            $("#textohtml").click(() => {
+                $("#texto").html("Função HTML Jquery").css("background-color", "lightgreen");
+            });
+
+            $("#textotext").click(() => {
+                $("#texto").text("Função TEXT Jquery").css("background-color", "lightblue");
+            });
+
+            $("#textoappend").click(() => {
+                $("#texto").append("<br> Funcão APPEND Jquery").css("background-color", "lightyellow");
+            });
+
+            $("#textoprepend").click(() => {
+                $("#texto").prepend("Função PREPEND Jquery <br>").css("background-color", "lightpink");
+            });
+
+            $("#limpar").click(() => {
+                $("#texto").empty();
+            });
+
+            $("#remover").click(() => {
+                $("#texto").remove();
+            })
+        });
+    </script>
+</body>
+</html>

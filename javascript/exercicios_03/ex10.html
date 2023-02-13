@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Faça um script que receba a altura de um degrau de uma escada e a altura que um pedreiro deseja alcançar utilizando essa escada, calcule e mostre quantos degraus ele deverá subir para atingir seu objetivo, os valores fornecidos devem ser em metros.
+    -->
+
+    <script>
+        var totalD;
+        var alturaD = parseFloat(prompt("Digite a altura do degrau (cm): "));
+        var alturaE = parseFloat(prompt("Digite a altura da escada (m): "));
+
+        alturaD = alturaD / 100; // transforma em metros 
+        totalD = alturaE/alturaD; 
+
+        alert("O total de degraus para atingir a altura de "+ alturaE + " metros é: " + totalD);
+        
+    </script>
+</body>
+</html>

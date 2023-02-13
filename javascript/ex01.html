@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <div>
+                <label> Primeiro número: </label>
+            </div>
+            <div>
+                <input type="number" id="num1" autofocus required>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Segundo número: </label>
+            </div>
+            <div>
+                <input type="number" id="num2" required>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Operação: </label>
+            </div>
+            <div>
+                <input type="radio" name="operacao" value="soma"> Soma </input>
+                <input type="radio" name="operacao" value="subtracao"> Subtração </input>
+                <input type="radio" name="operacao" value="multiplicacao"> Multiplicação </input>
+                <input type="radio" name="operacao" value="divisao"> Divisão </input>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Resultado: </label>
+            </div>
+            <div>
+                <input type="text" id="resp" disabled>
+            </div>
+            <div>
+                <input type="button" value="Botão" id="botao">
+            </div>
+        </div>
+    </form>
+
+    <script>
+        window.addEventListener("load", function(){
+            const btn = document.querySelector("#botao");
+            let operacao = document.querySelectorAll("input[name=operacao]");
+
+            btn.addEventListener("click", function(){
+                let v1 = parseFloat(document.querySelector("#num1").value);
+                let v2 = parseFloat(document.querySelector("#num2").value);
+                
+                let total, opcao;
+
+                for(let op of operacao){
+                    if(op.checked){
+                       opcao = op.value;
+                       break;
+                    }
+                }
+
+                switch(opcao){
+                    case "soma":
+                        total = v1 + v2;
+                        break;
+                    case "subtracao":
+                        total = v1 - v2;
+                        break;
+                    case "multiplicacao":
+                        total = v1 * v2;
+                        break;
+                    case "divisao": 
+                        total = v1 / v2;
+                        break;
+                    default:
+                        break;
+                }
+
+                document.querySelector("#resp").value = total ?? "";
+            });
+        });
+    </script>
+</body>
+</html>

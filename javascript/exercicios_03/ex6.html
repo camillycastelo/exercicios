@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Salário </title>
+</head>
+<body>
+    <!-- Uma empresa irá dar 25% de aumento para todos os funcionários, você deverá desenvolver
+    um programa que leia o salário atual do funcionário. Após a leitura, calcule e mostre na própria
+    página o salário atual em uma linha e em outra linha o salário com o aumento de 25%. -->
+
+    <script>
+
+        var salario = 0;
+        var aumento = 0;
+        var salF = 0;
+
+        alert("Iremos calcular o seu aumento");
+        salario = parseFloat(prompt("Digite seu Salário Atual: "));
+
+        aumento = (salario*25)/100;
+        salF = salario + aumento;
+
+        alert('Seu salário anterior é: ' + salario + '\nSeu novo salário com aumento é: ' + salF);
+
+    </script>
+
+</body>
+</html>

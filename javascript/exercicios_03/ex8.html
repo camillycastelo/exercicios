@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Equação </title>
+</head>
+<body>
+    <!-- Crie um script que calcule as raízes de uma equação de 2º grau ax2 + bx + c. Supor que as raízes
+    são reais. Para calcular a raiz você pode utilizar a função Math.sqrt (valor) – função própria do
+    JavaScript. Essa função retorna o resultado da raiz quadrada que deverá ser guardado em alguma
+    variável. Neste exemplo vamos supor que sempre teremos um delta válido. -->
+
+    <script>
+        "use strict"
+
+        let a = 1;
+        let b = -2;
+        let c = -8;
+        let delta;
+        let raizP;
+        let raizN;
+
+        document.write("<h1> Resolução de uma equação de 2º grau: </h1>");
+        document.write(` <h2> (${a})x² + (${b}) + (${c})  </h2>`);
+
+        delta = Math.pow(b,2) - 4 * a * c;
+        raizP = (-b + Math.sqrt(delta))/(2 * a);
+        raizN = (-b - Math.sqrt(delta))/(2 * a);
+
+        document.write(`<h3> Delta: ${delta} <br />`)
+        document.write(`Raiz 1: ${raizP} <br />`)
+        document.write(`Raiz 2: ${raizN}`)
+        console.log(delta,raizP, raizN)
+    </script>
+</body>
+</html>

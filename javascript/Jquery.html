@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form >
+        <div>
+            <div>
+                <label> Registro: </label>
+            </div>
+            <div>
+                <input type="text" id="registro" required autofocus>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Nome: </label>
+            </div>
+            <div>
+                <input type="text" id="nome" required>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Salário: </label>
+            </div>
+            <div>
+                <input type="number" id="salario">
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="button" value="Calcular IR" id="botao">
+            </div>
+        </div>
+        <div>
+            <div>
+                <label> Imposto de Renda: </label>
+            </div>
+            <div>
+                <input type="text" id="resp" disabled>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // como se fosse o window.addEventListener
+        $(function(){
+            $("#botao").click(() => {
+                let sal = parseFloat($("#salario").val());
+                let result;
+                
+                if(sal <= 1434){
+                    result = "Isento";
+                }
+                else if(sal <= 2150){
+                    result = (sal * 7.5)/100;
+                }
+                else if(sal <= 2866){
+                    result = (sal * 15)/100;
+                }
+                else if(sal <= 3582){
+                    result = (sal * 22.5)/100;
+                }
+                else {
+                    result = (sal * 27.5)/100;
+                }
+
+                $("#resp").val(result);
+            });
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #botao{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("botao");
+            btn.onclick = function(){
+                let sal = parseFloat(document.getElementById("salario").value);
+                let imp;
+                if(sal < 1434){
+                    imp =  "Isento!";
+                } else if(sal < 2150){
+                    imp = (sal*7.5)/100;
+                } else if(sal < 2866){
+                    imp = (sal*15)/100;
+                } else if(sal < 3582){
+                    imp = (sal*22.5)/100;
+                } else{
+                    imp = (sal*27.5)/100;
+                } 
+
+                document.getElementById("IR").value = imp;
+            }
+        }
+    </script>
+    <h1> Calculo do Imposto de Renda </h1>
+
+    <form> 
+        <label> Registro: </label>
+        <input type="text" id="registro" autofocus>
+        <br><br>
+        <label> Nome: </label>
+        <input type="text" id="nome">
+        <br><br>
+        <label> Salário: </label>
+        <input type="text" name="salario" id="salario">
+        <br><br>
+        <input type="button" id="botao" value="Calcular IR">
+        <br><br>
+        <label> Imposto de Renda: </label>
+        <input type="text" name="IR" id="IR" disabled>
+    </form>
+</body>
+</html>

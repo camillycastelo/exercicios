@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="" method="post">
+        Nome:
+        <input type="text" name="nome" id="nome">
+        <br>
+        E-mail:
+        <input type="text" name="email" id="email">
+        <input type="button" name="bt" id="bt" value="Mostrar">
+    </form>
+    <article id="res"></article>
+
+    <script>
+        $(function(){
+            $("#bt").click(mostraDados);
+        });
+
+        function mostraDados(){
+            $("#res").append(
+                "<span> Nome: </span>" + $("#nome").val() + "<br> <span> E-mail: </span>" + $("#email").val() + "<br><br>"
+            );
+        }
+    </script>
+</body>
+</html>
